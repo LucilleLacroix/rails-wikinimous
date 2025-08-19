@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="mb-0"><%= @article.title %></h1>
+  <div>
+    <%= link_to "<i class='fa fa-pen'></i> Edit".html_safe, edit_article_path(@article), class: "btn btn-outline-secondary me-2" %>
+    <%= link_to "<i class='fa fa-trash'></i> Delete".html_safe, @article,
+          data: { turbo_method: :delete, turbo_confirm: "Delete this article?" },
+          class: "btn btn-outline-danger" %>
+  </div>
+</div>
+
+<article class="card">
+  <div class="card-body">
+    <%= simple_format(@article.content) %>
+  </div>
+</article>
+
+<div class="mt-4">
+  <%= link_to "<i class='fa fa-arrow-left me-2'></i>Back".html_safe, articles_path, class: "btn btn-link" %>
+</div>
+
